@@ -36,4 +36,5 @@ app.MigrateDataBase<RouteDbContext>((context, service) =>
 
 app.Run();
 
+public partial class Program { }
 
