@@ -1,7 +1,9 @@
-﻿namespace IORoute.Domain.Usecases
+﻿using IORoute.Domain.Models.DTO;
+
+namespace IORoute.Domain.Usecases
 {
     public interface IGetBestRoute
     {
-        Task<string> GetRoute(string origin, string destination);
+        Task<string> GetRoute(RouteModelViewModel model);
     }
 }

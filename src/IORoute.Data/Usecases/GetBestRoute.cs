@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using IORoute.Data.Protocols;
+﻿using IORoute.Data.Protocols;
 using IORoute.Domain.Models.DTO;
 using IORoute.Domain.Usecases;
 
@@ -16,7 +13,7 @@ namespace IORoute.Data.Usecases
             _loadRoutesRepository = loadRoutesRepository;
         }
 
-        public Task<string> GetRoute(string origin, string destination)
+        public Task<string> GetRoute(RouteModelViewModel model)
         {
             var routes = _loadRoutesRepository.LoadRoutes();
             if (routes == null)
@@ -26,7 +23,7 @@ namespace IORoute.Data.Usecases
 
             var graph = CreateGraph(routes);
 
-            if (!graph.ContainsKey(origin) || !graph.ContainsKey(destination))
+            if (!graph.ContainsKey(model.Origin) || !graph.ContainsKey(model.Destination))
             {
                 return Task.FromResult<string>(null);
             }
@@ -42,14 +39,14 @@ namespace IORoute.Data.Usecases
                 notVisited.Add(vertex);
             }
 
-            minimumCost[origin] = 0;
+            minimumCost[model.Origin] = 0;
 
             while (notVisited.Count > 0)
             {
                 var currentVertex = notVisited.OrderBy(vertex => minimumCost[vertex]).First();
                 notVisited.Remove(currentVertex);
 
-                if (currentVertex == destination)
+                if (currentVertex == model.Destination)
                 {
                     var path = new List<string>();
                     while (previous[currentVertex] != null)
@@ -58,9 +55,9 @@ namespace IORoute.Data.Usecases
                         currentVertex = previous[currentVertex];
                     }
 
-                    path.Add(origin);
+                    path.Add(model.Origin);
                     path.Reverse();
-                    return Task.FromResult(string.Join(" - ", path) + " ao custo de $" + minimumCost[destination]);
+                    return Task.FromResult(string.Join(" - ", path) + " ao custo de $" + minimumCost[model.Destination]);
                 }
 
                 if (!graph.ContainsKey(currentVertex)) continue;
