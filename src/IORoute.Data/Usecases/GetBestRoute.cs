@@ -31,7 +31,7 @@ namespace IORoute.Data.Usecases
                 return Task.FromResult<string>(null);
             }
 
-            var minimumCost = new Dictionary<string, int>();
+            var minimumCost = new Dictionary<string, decimal>();
             var previous = new Dictionary<string, string>();
             var notVisited = new HashSet<string>();
 
@@ -80,20 +80,20 @@ namespace IORoute.Data.Usecases
         }
 
 
-        private Dictionary<string, Dictionary<string, int>> CreateGraph(IEnumerable<RouteModel> routes)
+        private Dictionary<string, Dictionary<string, decimal>> CreateGraph(IEnumerable<RouteModel> routes)
         {
-            var graph = new Dictionary<string, Dictionary<string, int>>();
+            var graph = new Dictionary<string, Dictionary<string, decimal>>();
 
             foreach (var route in routes)
             {
                 if (!graph.ContainsKey(route.Origin))
                 {
-                    graph[route.Origin] = new Dictionary<string, int>();
+                    graph[route.Origin] = new Dictionary<string, decimal>();
                 }
 
                 if (!graph.ContainsKey(route.Destination))
                 {
-                    graph[route.Destination] = new Dictionary<string, int>();
+                    graph[route.Destination] = new Dictionary<string, decimal>();
                 }
 
                 graph[route.Origin][route.Destination] = route.Cost;

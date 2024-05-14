@@ -1,6 +1,6 @@
-﻿namespace IORoute.Domain.Models.DTO
+﻿namespace IORoute.Domain.Models.Entities
 {
-    public class RouteModel
+    public class Route : Entity
     {
         public string Origin { get; set; }
         public string Destination { get; set; }
