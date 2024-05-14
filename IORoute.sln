@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IORoute.Test", "test\IORout
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IORoute.Infra", "src\IORoute.Infra\IORoute.Infra.csproj", "{8374199A-86A5-4B6C-860D-6272D501A862}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IORoute.API", "src\IORoute.API\IORoute.API.csproj", "{D80EC9AA-25EE-4DFF-8110-676785173058}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8374199A-86A5-4B6C-860D-6272D501A862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8374199A-86A5-4B6C-860D-6272D501A862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8374199A-86A5-4B6C-860D-6272D501A862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D80EC9AA-25EE-4DFF-8110-676785173058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80EC9AA-25EE-4DFF-8110-676785173058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80EC9AA-25EE-4DFF-8110-676785173058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80EC9AA-25EE-4DFF-8110-676785173058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
