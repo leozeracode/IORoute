@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IORoute.Infra.Persistence
 {
-    public class RouteContext : DbContext
+    public class RouteDbContext : DbContext
     {
-        public RouteContext(DbContextOptions<RouteContext> options) : base(options)
+        public RouteDbContext(DbContextOptions<RouteDbContext> options) : base(options)
         {
         }
 

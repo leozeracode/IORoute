@@ -10,11 +10,11 @@ namespace IORoute.Test.Infra.Repositories
         [Fact]
         public void LoadRoutes_ShouldReturn_Routes()
         {
-            var options = new DbContextOptionsBuilder<RouteContext>()
+            var options = new DbContextOptionsBuilder<RouteDbContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()) 
                 .Options;
 
-            using (var context = new RouteContext(options))
+            using (var context = new RouteDbContext(options))
             {
                 context.Routes.Add(new Route { Origin = "GRU", Destination = "BRC", Cost = 10 });
                 context.Routes.Add(new Route { Origin = "BRC", Destination = "SCL", Cost = 5 });
@@ -27,7 +27,7 @@ namespace IORoute.Test.Infra.Repositories
                 context.SaveChanges();
             }
 
-            using (var context = new RouteContext(options))
+            using (var context = new RouteDbContext(options))
             {
                 var repository = new RoutesRepository(context);
                 var routes = repository.LoadRoutes();

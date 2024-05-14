@@ -6,9 +6,9 @@ namespace IORoute.Infra.Repositories
 {
     public class RoutesRepository : ILoadRoutesRepository
     {
-        private readonly RouteContext _dbContext;
+        private readonly RouteDbContext _dbContext;
 
-        public RoutesRepository(RouteContext dbContext)
+        public RoutesRepository(RouteDbContext dbContext)
         {
             _dbContext = dbContext;
         }

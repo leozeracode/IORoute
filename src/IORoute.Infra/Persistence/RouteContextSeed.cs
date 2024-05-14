@@ -5,13 +5,13 @@ namespace IORoute.Infra.Persistence
 {
     public class RouteContextSeed
     {
-        public static async Task SeedAsync(RouteContext orderContext, ILogger<RouteContextSeed> logger)
+        public static async Task SeedAsync(RouteDbContext orderContext, ILogger<RouteContextSeed> logger)
         {
             if (!orderContext.Routes.Any())
             {
                 orderContext.Routes.AddRange(GetPreconfiguredRoutes());
                 await orderContext.SaveChangesAsync();
-                logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RouteContext).Name);
+                logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RouteDbContext).Name);
             }
         }
 
