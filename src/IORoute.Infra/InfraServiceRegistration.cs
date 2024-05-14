@@ -12,10 +12,10 @@ namespace IORoute.Infra
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
 
-            services.AddDbContext<RouteContext>(options =>
+            services.AddDbContext<RouteDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<RouteContext>();
+            services.AddScoped<RouteDbContext>();
 
             services.AddScoped<ILoadRoutesRepository, RoutesRepository>();
 
