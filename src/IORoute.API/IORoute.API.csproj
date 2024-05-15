@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IORoute.App\IORoute.App.csproj" />
     <ProjectReference Include="..\IORoute.Infra\IORoute.Infra.csproj" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.19">
 		  <PrivateAssets>all</PrivateAssets>

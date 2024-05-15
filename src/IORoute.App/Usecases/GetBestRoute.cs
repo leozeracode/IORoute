@@ -1,10 +1,10 @@
-﻿using IORoute.Data.Protocols;
+﻿using IORoute.App.Protocols;
 using IORoute.Domain.Models.DTO;
 using IORoute.Domain.Usecases;
 using System.Text.RegularExpressions;
 
 
-namespace IORoute.Data.Usecases
+namespace IORoute.App.Usecases
 {
     public class GetBestRoute : IGetBestRoute
     {

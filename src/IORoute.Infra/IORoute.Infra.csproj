@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IORoute.Data\IORoute.Data.csproj" />
+    <ProjectReference Include="..\IORoute.App\IORoute.App.csproj" />
     <ProjectReference Include="..\IORoute.Domain\IORoute.Domain.csproj" />
   </ItemGroup>
 

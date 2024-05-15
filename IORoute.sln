@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IORoute.Data", "src\IORoute.Data\IORoute.Data.csproj", "{EC56C29E-7DC9-421A-A8CE-A054A5E6FEA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IORoute.App", "src\IORoute.App\IORoute.App.csproj", "{EC56C29E-7DC9-421A-A8CE-A054A5E6FEA9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IORoute.Domain", "src\IORoute.Domain\IORoute.Domain.csproj", "{6ABA4CD9-88EF-4E60-927A-DB16A0712486}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IORoute.Test", "test\IORoute.Test\IORoute.Test.csproj", "{AD654BA5-D96F-4902-A001-8F91EAAC5EB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IORoute.Infra", "src\IORoute.Infra\IORoute.Infra.csproj", "{8374199A-86A5-4B6C-860D-6272D501A862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IORoute.Infra", "src\IORoute.Infra\IORoute.Infra.csproj", "{8374199A-86A5-4B6C-860D-6272D501A862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IORoute.API", "src\IORoute.API\IORoute.API.csproj", "{D80EC9AA-25EE-4DFF-8110-676785173058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IORoute.API", "src\IORoute.API\IORoute.API.csproj", "{D80EC9AA-25EE-4DFF-8110-676785173058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

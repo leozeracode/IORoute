@@ -1,7 +1,7 @@
 ﻿using Moq;
 using IORoute.Domain.Models.DTO;
-using IORoute.Data.Protocols;
-using IORoute.Data.Usecases;
+using IORoute.App.Protocols;
+using IORoute.App.Usecases;
 
 namespace IORoute.Test.Data.Usecases
 {

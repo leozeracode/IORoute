@@ -1,10 +1,9 @@
 using IORoute.Infra;
 using IORoute.Domain.Usecases;
-using IORoute.Data.Usecases;
 using IORoute.Infra.Persistence;
 using IORoute.API.Extensions;
 using Microsoft.AspNetCore.Mvc;
-
+using IORoute.App.Usecases;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\IORoute.API\IORoute.API.csproj" />
-    <ProjectReference Include="..\..\src\IORoute.Data\IORoute.Data.csproj" />
+    <ProjectReference Include="..\..\src\IORoute.App\IORoute.App.csproj" />
     <ProjectReference Include="..\..\src\IORoute.Domain\IORoute.Domain.csproj" />
     <ProjectReference Include="..\..\src\IORoute.Infra\IORoute.Infra.csproj" />
 	  <InternalsVisibleTo Include="IORoute.Test" />

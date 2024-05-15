@@ -1,6 +1,6 @@
 ﻿using IORoute.Domain.Models.DTO;
 
-namespace IORoute.Data.Protocols
+namespace IORoute.App.Protocols
 {
     public interface ILoadRoutesRepository
     {

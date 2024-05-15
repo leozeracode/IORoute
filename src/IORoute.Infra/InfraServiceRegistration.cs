@@ -1,4 +1,4 @@
-﻿using IORoute.Data.Protocols;
+﻿using IORoute.App.Protocols;
 using IORoute.Infra.Persistence;
 using IORoute.Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
