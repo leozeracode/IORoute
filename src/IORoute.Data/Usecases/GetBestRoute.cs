@@ -1,6 +1,8 @@
 ﻿using IORoute.Data.Protocols;
 using IORoute.Domain.Models.DTO;
 using IORoute.Domain.Usecases;
+using System.Text.RegularExpressions;
+
 
 namespace IORoute.Data.Usecases
 {
@@ -15,6 +17,9 @@ namespace IORoute.Data.Usecases
 
         public Task<string> GetRoute(RouteModelViewModel model)
         {
+            var origin = Regex.Replace(model.Origin.ToUpper().Replace(" ", ""), @"[^A-Z0-9]", "");
+            var destination = Regex.Replace(model.Destination.ToUpper().Replace(" ", ""), @"[^A-Z0-9]", "");
+
             var routes = _loadRoutesRepository.LoadRoutes();
             if (routes == null)
             {
@@ -23,7 +28,7 @@ namespace IORoute.Data.Usecases
 
             var graph = CreateGraph(routes);
 
-            if (!graph.ContainsKey(model.Origin) || !graph.ContainsKey(model.Destination))
+            if (!graph.ContainsKey(origin) || !graph.ContainsKey(destination))
             {
                 return Task.FromResult<string>(null);
             }
@@ -39,14 +44,14 @@ namespace IORoute.Data.Usecases
                 notVisited.Add(vertex);
             }
 
-            minimumCost[model.Origin] = 0;
+            minimumCost[origin] = 0;
 
             while (notVisited.Count > 0)
             {
                 var currentVertex = notVisited.OrderBy(vertex => minimumCost[vertex]).First();
                 notVisited.Remove(currentVertex);
 
-                if (currentVertex == model.Destination)
+                if (currentVertex == destination)
                 {
                     var path = new List<string>();
                     while (previous[currentVertex] != null)
@@ -55,9 +60,9 @@ namespace IORoute.Data.Usecases
                         currentVertex = previous[currentVertex];
                     }
 
-                    path.Add(model.Origin);
+                    path.Add(origin);
                     path.Reverse();
-                    return Task.FromResult(string.Join(" - ", path) + " ao custo de $" + minimumCost[model.Destination]);
+                    return Task.FromResult(string.Join(" - ", path) + " ao custo de $" + minimumCost[destination]);
                 }
 
                 if (!graph.ContainsKey(currentVertex)) continue;

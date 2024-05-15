@@ -23,6 +23,16 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
     options.SuppressModelStateInvalidFilter = true;
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();
@@ -31,11 +41,15 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCors(cors => cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+
 app.MigrateDataBase<RouteDbContext>((context, service) =>
 {
     var logger = service.GetService<ILogger<RouteContextSeed>>();
     RouteContextSeed.SeedAsync(context, logger).Wait();
 });
+
 
 
 app.Run();
