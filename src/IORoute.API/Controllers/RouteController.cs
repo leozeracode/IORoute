@@ -16,10 +16,6 @@ namespace IORoute.API.Controllers
         [HttpGet]
         public async Task<ActionResult<string>> GetBestRoute([FromQuery] RouteModelViewModel model)
         {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest(ModelState.Values.SelectMany(e => e.Errors).Select(e => e.ErrorMessage));
-            }
             var bestRoute = await _getBestRoute.GetRoute(model);
             if(bestRoute == null)
             {

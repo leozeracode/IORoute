@@ -1,9 +1,4 @@
-﻿using IORoute.Domain.Models.DTO;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
-using Newtonsoft.Json;
-using IORoute.API;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net;
 
 namespace IORoute.Test.API.Controllers
