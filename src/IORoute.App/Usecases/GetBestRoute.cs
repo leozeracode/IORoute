@@ -15,22 +15,22 @@ namespace IORoute.App.Usecases
             _loadRoutesRepository = loadRoutesRepository;
         }
 
-        public Task<string> GetRoute(RouteModelViewModel model)
+        public async Task<string> GetRoute(RouteModelViewModel model)
         {
             var origin = Regex.Replace(model.Origin.ToUpper().Replace(" ", ""), @"[^A-Z0-9]", "");
             var destination = Regex.Replace(model.Destination.ToUpper().Replace(" ", ""), @"[^A-Z0-9]", "");
 
-            var routes = _loadRoutesRepository.LoadRoutes();
+            var routes = await _loadRoutesRepository.LoadRoutes();
             if (routes == null)
             {
-                return Task.FromResult<string>(null);
+                return null;
             }
 
             var graph = CreateGraph(routes);
 
             if (!graph.ContainsKey(origin) || !graph.ContainsKey(destination))
             {
-                return Task.FromResult<string>(null);
+                return null;
             }
 
             var minimumCost = new Dictionary<string, decimal>();
@@ -62,7 +62,7 @@ namespace IORoute.App.Usecases
 
                     path.Add(origin);
                     path.Reverse();
-                    return Task.FromResult(string.Join(" - ", path) + " ao custo de $" + minimumCost[destination]);
+                    return string.Join(" - ", path) + " ao custo de $" + minimumCost[destination];
                 }
 
                 if (!graph.ContainsKey(currentVertex)) continue;
@@ -78,7 +78,7 @@ namespace IORoute.App.Usecases
                 }
             }
 
-            return Task.FromResult<string>(null);
+            return null;
         }
 
 

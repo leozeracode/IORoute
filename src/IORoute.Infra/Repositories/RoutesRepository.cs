@@ -1,6 +1,7 @@
 ﻿using IORoute.App.Protocols;
 using IORoute.Domain.Models.DTO;
 using IORoute.Infra.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace IORoute.Infra.Repositories
 {
@@ -12,9 +13,9 @@ namespace IORoute.Infra.Repositories
         {
             _dbContext = dbContext;
         }
-        public IEnumerable<RouteModel> LoadRoutes()
+        public async Task<IEnumerable<RouteModel>> LoadRoutes()
         {
-            var routes = _dbContext.Routes.ToList();
+            var routes = await _dbContext.Routes.ToListAsync();
             var routeModels = routes.Select(route => new RouteModel
             {
                 Origin = route.Origin,

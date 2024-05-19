@@ -4,6 +4,6 @@ namespace IORoute.App.Protocols
 {
     public interface ILoadRoutesRepository
     {
-        IEnumerable<RouteModel> LoadRoutes();
+        Task<IEnumerable<RouteModel>> LoadRoutes();
     }
 }
